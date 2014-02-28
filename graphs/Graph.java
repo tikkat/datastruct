@@ -1,5 +1,7 @@
 package graphs;
 
+import java.util.Iterator;
+
 /** Interface so specify a Graph ADT. A graph is a set
  * of vertices and a set of edges. Verices are represented 
  * by integers from 0 to n-2. Edges are ordered pairs of
@@ -41,5 +43,5 @@ public interface Graph {
 	 * 			connected to source
 	 */
 	
-	Interator<Edge> edgeIterator(int source);
+	Iterator<Edge> edgeIterator(int source);
 }
