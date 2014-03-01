@@ -25,7 +25,22 @@ public abstract class AbstractGraph implements Graph {
 	}
 
 	public void loadEdgesFromFile(Scanner scan){
-		//Excercise
+		Scanner lineScanner;
+		int source;
+		int dest;
+		double weight;
+		Edge e;
+		
+		while(scan.hasNextLine()){
+			lineScanner = new Scanner(scan.nextLine());
+			source = lineScanner.nextInt(); 
+			dest = lineScanner.nextInt();	
+			if(lineScanner.hasNextDouble())
+				e = new Edge(source, dest, lineScanner.nextDouble());
+			else
+				e = new Edge(source, dest, 1.0);
+			insert(e);
+		}
 	}
 
 	/** Factory methos to create a graph and load the data from an input
@@ -40,8 +55,8 @@ public abstract class AbstractGraph implements Graph {
 	 * @throws	IllegalArgumentException	if type is neither "Matrix" nor "List"
 	 */
 	public static Graph createGraph(Scanner scan, boolean isDirected, String type){
-		int numV 					= scan.nextInt();
-		AbstractGraph returnValue 	= null;
+		int numV = scan.nextInt();
+		AbstractGraph returnValue = null;
 		if(type.equalsIgnoreCase("Matrix"))
 			returnValue = new MatrixGraph(numV, isDirected);
 		else if(type.equalsIgnoreCase("List"))
