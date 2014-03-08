@@ -34,7 +34,7 @@ public class DepthFirstSearch {
 		for(int i  = 0; i < n; i++){
 			parent[i] = -1;
 		}
-		
+	
 		for(int i  = 0; i < n; i++){
 			if(!visited[i])
 				depthFirstSearch(i);
